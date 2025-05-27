@@ -2,7 +2,7 @@
 sequenceDiagram
   
 
-  Käyttäjä->Selain: Kirjoittaa muistiinpanon ja painaa "Save"
+  Käyttäjä->>Selain: Kirjoittaa muistiinpanon ja painaa "Save"
   Selain->Serveri: POST https://studies.cs.helsinki.fi/exampleapp/new_note
   Serveri-->>Selain: Status 302 Found(redirect pyyntö)
   Selain->Serveri: GET https://studies.cs.helsinki.fi/exampleapp/notes
