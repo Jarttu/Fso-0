@@ -15,5 +15,24 @@ sequenceDiagram
   Serveri-->>Selain: status 304 Not Modified(main.js)
   Selain-->>Serveri: GET https://studies.cs.helsinki.fi/exampleapp/data.json
   Serveri-->>Selain: status 200 OK(data.json)
-  Selain-->>Käyttäjä: status kun on OK niin selain näyttää käyttäjälle kirjoitetun muistiinpanon
+  Selain-->>Käyttäjä: selain näyttää käyttäjälle kirjoitetun muistiinpanon
+```
+```mermaid
+sequenceDiagram
+  participant Käyttäjä
+  participant Selain
+  participant Serveri
+
+  Käyttäjä-->>Selain: käyttäjä menee sivulle https://studies.cs.helsinki.fi/exampleapp/spa
+  Selain-->>Serveri: GET https://studies.cs.helsinki.fi/exampleapp/spa
+  Serveri-->>Selain: status 200 OK (HTML)
+  Selain-->>Serveri: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+  Serveri-->>Selain: status 200 OK (main.css)
+  Selain-->>Serveri: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+  Serveri-->>Selain: status 200 OK (main.js)
+  Selain-->>Serveri: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+  Serveri-->>Selain: status 200 OK (data.json)
+  Selain-->>Serveri: GET https://studies.cs.helsinki.fi/favicon.ico
+  Serveri-->>Selain: status 404 Not Found (favicon.ico)
+  Selain-->>Käyttäjä: selain näyttää käyttäjälle muistiinpano sivun
 ```
